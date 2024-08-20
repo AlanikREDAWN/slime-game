@@ -18,16 +18,16 @@ func _run() -> void:
   var spritesheet: StreamTexture = get_spritesheet_texture()
 
   if spritesheet:
-    # if spritesheet texture exists, proceed to open xml file
-    if open_spritesheet_data():
-      # start reading subtextures nodes
-      var end: bool = false
+	# if spritesheet texture exists, proceed to open xml file
+	if open_spritesheet_data():
+	  # start reading subtextures nodes
+	  var end: bool = false
 
-      # loop trough xml (not closing) elements
-      while not end:
-        edit_texture(spritesheet)
+	  # loop trough xml (not closing) elements
+	  while not end:
+		edit_texture(spritesheet)
 
-        end = not read_next_texture()
+		end = not read_next_texture()
 
 ##
 # Create and return a stream texture from the spritesheet
@@ -38,7 +38,7 @@ func get_spritesheet_texture() -> StreamTexture:
 
   # check if spritesheet image exists and load it
   if dir.file_exists(sprites_path):
-    spritesheet = load(sprites_path) as StreamTexture
+	spritesheet = load(sprites_path) as StreamTexture
 
   return spritesheet
 
@@ -48,15 +48,15 @@ func get_spritesheet_texture() -> StreamTexture:
 func init_folder(path: String) -> bool:
   # check if folder exists
   if not dir.dir_exists(path):
-    # if not, try to create it
-    if dir.make_dir_recursive(path) == OK:
-      print("Create ", path, " folder: SUCCESS.")
-    else:
-      print("Create ", path, " folder: FAIL.")
-      return false
+	# if not, try to create it
+	if dir.make_dir_recursive(path) == OK:
+	  print("Create ", path, " folder: SUCCESS.")
+	else:
+	  print("Create ", path, " folder: FAIL.")
+	  return false
   else:
-    # folder already exists, do nothing
-    print(path, " folder already exists.")
+	# folder already exists, do nothing
+	print(path, " folder already exists.")
 
   return true
 
@@ -66,11 +66,11 @@ func init_folder(path: String) -> bool:
 func open_spritesheet_data() -> bool:
   # try to open spritesheet xml file
   if xml.open(IMAGES_PATH + "/sprites.xml") == OK:
-    # go to first subtexture element
-    if xml.seek(1) == OK:
-      if read_next_texture():
-        print("Open xml data: SUCCESS")
-        return true
+	# go to first subtexture element
+	if xml.seek(1) == OK:
+	  if read_next_texture():
+		print("Open xml data: SUCCESS")
+		return true
 
   print("Open xml data: FAIL")
   return false
@@ -95,13 +95,13 @@ func get_path(file_name_included: bool = true, folder: String = "") -> String:
   var path: String = "res://"
 
   for part in name:
-    path = path.plus_file(part)
+	path = path.plus_file(part)
 
   if not folder.empty():
-    path = path.plus_file(folder)
+	path = path.plus_file(folder)
 
   if file_name_included:
-    path = path.plus_file(file_name)
+	path = path.plus_file(file_name)
 
   return path
 
@@ -121,10 +121,10 @@ func get_texture_region() -> Rect2:
 ##
 func read_next_texture() -> bool:
   if xml.read() == OK:
-    # check if the current element is not an ending one
-    if xml.get_node_type() == xml.NODE_ELEMENT:
-      print("Read next sprite: SUCCESS")
-      return true
+	# check if the current element is not an ending one
+	if xml.get_node_type() == xml.NODE_ELEMENT:
+	  print("Read next sprite: SUCCESS")
+	  return true
 
   print("Read next sprite: FAIL")
   return false
@@ -142,22 +142,22 @@ func edit_texture(spritesheet: StreamTexture) -> void:
   var rect: Rect2 = get_texture_region()
 
   if init_folder(folder_path):
-    if not dir.file_exists(resource_path):
-      atlas_texture = AtlasTexture.new()
-    else:
-      atlas_texture = load(resource_path) as AtlasTexture
+	if not dir.file_exists(resource_path):
+	  atlas_texture = AtlasTexture.new()
+	else:
+	  atlas_texture = load(resource_path) as AtlasTexture
 
-    atlas_texture.atlas = spritesheet
-    atlas_texture.region = rect
+	atlas_texture.atlas = spritesheet
+	atlas_texture.region = rect
 
-    # save new/edited atlas texture to disk
-    if ResourceSaver.save(resource_path, atlas_texture) == OK:
-      print("Atlas texture: ", resource_path, " saved.")
-      if resource_path.find("tile") > -1:
-        # texture is part of a tileset
-        edit_tileset(atlas_texture, get_texture_name())
-    else:
-      print("Error while saving atlas texture: ", resource_path)
+	# save new/edited atlas texture to disk
+	if ResourceSaver.save(resource_path, atlas_texture) == OK:
+	  print("Atlas texture: ", resource_path, " saved.")
+	  if resource_path.find("tile") > -1:
+		# texture is part of a tileset
+		edit_tileset(atlas_texture, get_texture_name())
+	else:
+	  print("Error while saving atlas texture: ", resource_path)
 
 ##
 # Edit existing tileset resource or create a new one
@@ -174,11 +174,11 @@ func edit_tileset(texture: AtlasTexture, texture_name: String) -> void:
   var tileset_name: String = tileset_folder.substr(begin, length)
 
   if tileset_name == "tile":
-    # if las subfolder name is just "tile" call the tileset simply "tileset"
-    tileset_name = "tileset"
+	# if las subfolder name is just "tile" call the tileset simply "tileset"
+	tileset_name = "tileset"
   else:
-    # call it "lastSubfolderName_tileset"
-    tileset_name += "_tileset"
+	# call it "lastSubfolderName_tileset"
+	tileset_name += "_tileset"
 
   # full tileset path, including resource name and extension
   var tileset_path: String = tileset_folder.plus_file(tileset_name + ".tres")
@@ -187,27 +187,27 @@ func edit_tileset(texture: AtlasTexture, texture_name: String) -> void:
 
   # create or load existent tileset
   if not dir.file_exists(tileset_path):
-    tileset = TileSet.new()
+	tileset = TileSet.new()
   else:
-    tileset = load(tileset_path) as TileSet
+	tileset = load(tileset_path) as TileSet
 
   if tileset:
-    # check if tile already exists
-    var tile_id: int = tileset.find_tile_by_name(texture_name)
-    print("id: ", tile_id)
+	# check if tile already exists
+	var tile_id: int = tileset.find_tile_by_name(texture_name)
+	print("id: ", tile_id)
 
-    if tile_id == -1:
-      # tile doesn't exists, create a new one
-      tile_id = tileset.get_last_unused_tile_id()
-      print("new id: ", tile_id)
-      tileset.create_tile(tile_id)
+	if tile_id == -1:
+	  # tile doesn't exists, create a new one
+	  tile_id = tileset.get_last_unused_tile_id()
+	  print("new id: ", tile_id)
+	  tileset.create_tile(tile_id)
 
-    tileset.tile_set_name(tile_id, texture_name)
-    tileset.tile_set_texture(tile_id, texture.atlas)
-    tileset.tile_set_region(tile_id, texture.region)
+	tileset.tile_set_name(tile_id, texture_name)
+	tileset.tile_set_texture(tile_id, texture.atlas)
+	tileset.tile_set_region(tile_id, texture.region)
 
-    # save new/edited tileset to disk
-    if ResourceSaver.save(tileset_path, tileset) == OK:
-      print("tileset: ", tileset_path, " saved.")
-    else:
-      print("Error while saving tileset: ", tileset_path)
+	# save new/edited tileset to disk
+	if ResourceSaver.save(tileset_path, tileset) == OK:
+	  print("tileset: ", tileset_path, " saved.")
+	else:
+	  print("Error while saving tileset: ", tileset_path)
