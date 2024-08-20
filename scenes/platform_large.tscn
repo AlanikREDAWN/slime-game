@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkqe2swn6j546"]
+
+[ext_resource type="Texture2D" uid="uid://cx2tk2m7rytmt" path="res://assets/ground_stone_broken_resized2.png" id="1_dcnuv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuk5"]
+radius = 65.4756
+height = 598.254
+
+[node name="PlatformLarge" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_dcnuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.129938, -3.52699)
+rotation = -1.57109
+shape = SubResource("CapsuleShape2D_chuk5")
