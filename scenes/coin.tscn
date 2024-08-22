@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dp2ospmb520pi"]
+
+[ext_resource type="Texture2D" uid="uid://xu0tqepoeqcp" path="res://assets/01coin.png" id="1_63yad"]
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_kjdmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn4ew"]
+atlas = ExtResource("1_63yad")
+region = Rect2(0, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mguqg"]
+atlas = ExtResource("1_63yad")
+region = Rect2(120, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff5dg"]
+atlas = ExtResource("1_63yad")
+region = Rect2(240, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvkwe"]
+atlas = ExtResource("1_63yad")
+region = Rect2(360, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcg5d"]
+atlas = ExtResource("1_63yad")
+region = Rect2(480, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6cko"]
+atlas = ExtResource("1_63yad")
+region = Rect2(600, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgplc"]
+atlas = ExtResource("1_63yad")
+region = Rect2(720, 15, 120, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m652"]
+atlas = ExtResource("1_63yad")
+region = Rect2(840, 15, 120, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpttg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn4ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mguqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff5dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvkwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcg5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6cko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgplc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m652")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3xtr"]
+radius = 34.0
+height = 88.0
+
+[node name="Coin" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_kjdmb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gpttg")
+autoplay = "default"
+frame_progress = 0.689706
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v3xtr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
