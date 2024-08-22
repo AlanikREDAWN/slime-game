@@ -1,13 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://du6dr6rsym36c"]
+[gd_scene load_steps=12 format=3 uid="uid://du6dr6rsym36c"]
 
 [ext_resource type="Texture2D" uid="uid://cain70s4crxg3" path="res://assets/blue_slime 2/front/gel front0000.png" id="1_1f6lv"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aohyc"]
 [ext_resource type="Texture2D" uid="uid://bpx0x1athdgal" path="res://assets/blue_slime 2/front/gel front0001.png" id="2_eilfm"]
 [ext_resource type="Texture2D" uid="uid://d0p5mny0ha1v" path="res://assets/blue_slime 2/front/gel front0002.png" id="3_esyg6"]
 [ext_resource type="Texture2D" uid="uid://4gofhllhy78e" path="res://assets/blue_slime 2/front/gel front0003.png" id="4_h8ull"]
+[ext_resource type="Texture2D" uid="uid://c1xdvnlogr6ba" path="res://assets/blue_slime 2/side/gel side0000.png" id="6_w3xpi"]
+[ext_resource type="Texture2D" uid="uid://5g4jxxorr6w7" path="res://assets/blue_slime 2/side/gel side0001.png" id="7_4o78a"]
+[ext_resource type="Texture2D" uid="uid://cgl0qvv7xkfh2" path="res://assets/blue_slime 2/side/gel side0002.png" id="8_0adhm"]
+[ext_resource type="Texture2D" uid="uid://7wjv4lojfv1r" path="res://assets/blue_slime 2/side/gel side0003.png" id="9_2sjlp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tdvnt"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_1f6lv")
@@ -24,6 +33,31 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_esyg6")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w3xpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4o78a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0adhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2sjlp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq7w8"]
@@ -36,9 +70,8 @@ script = ExtResource("1_aohyc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -80)
 sprite_frames = SubResource("SpriteFrames_tdvnt")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.456704
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -59)
