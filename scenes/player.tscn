@@ -12,10 +12,13 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tdvnt"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_esyg6")
+}],
 "loop": true,
 "name": &"duck",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -36,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_esyg6")
+"texture": ExtResource("1_1f6lv")
 }],
 "loop": true,
 "name": &"jump",
@@ -70,7 +73,7 @@ script = ExtResource("1_aohyc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -80)
 sprite_frames = SubResource("SpriteFrames_tdvnt")
-animation = &"jump"
+animation = &"duck"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
