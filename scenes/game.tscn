@@ -1,8 +1,6 @@
-[gd_scene load_steps=401 format=4 uid="uid://ctlv5nu2jt374"]
+[gd_scene load_steps=398 format=4 uid="uid://ctlv5nu2jt374"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2jlxm"]
 [ext_resource type="PackedScene" uid="uid://du6dr6rsym36c" path="res://scenes/player.tscn" id="1_a06q4"]
-[ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="2_f4f4q"]
 [ext_resource type="Texture2D" uid="uid://cgpxlo7fvsjok" path="res://assets/Roguelike pack/Spritesheet/roguelikeSheet_transparent.png" id="2_jci2a"]
 [ext_resource type="Texture2D" uid="uid://v6sandn3hff8" path="res://assets/large_hill.png" id="3_828bk"]
 [ext_resource type="Texture2D" uid="uid://dc1wq8f67qu5u" path="res://assets/Platformer Art Complete Pack/Base pack/Tiles/hill_large.png" id="3_dkmhb"]
@@ -193,7 +191,6 @@
 [ext_resource type="Script" path="res://scripts/small_platform2.gd" id="186_vstdk"]
 [ext_resource type="PackedScene" uid="uid://bkqe2swn6j546" path="res://scenes/platform_large.tscn" id="189_a6nu4"]
 [ext_resource type="PackedScene" uid="uid://dp2ospmb520pi" path="res://scenes/coin.tscn" id="190_cydjr"]
-[ext_resource type="AudioStream" uid="uid://cubsjsokhwxnk" path="res://assets/music/time_for_adventure.mp3" id="194_y7ynf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iwc10"]
 load_path = "res://.godot/imported/industrial-background.jpg-e75cb4331ef313dea69c4604e237fe18.ctex"
@@ -92792,19 +92789,6 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_2jlxm")
-
-[node name="CoinsLabel" type="Label" parent="GameManager"]
-offset_left = -2625.0
-offset_top = -1529.0
-offset_right = -1575.0
-offset_bottom = -1096.0
-theme_override_fonts/font = ExtResource("2_f4f4q")
-theme_override_font_sizes/font_size = 150
-text = "Coins: 0"
-
 [node name="Player" parent="." instance=ExtResource("1_a06q4")]
 z_index = 5
 position = Vector2(189, 1366)
@@ -92930,7 +92914,3 @@ libraries = {
 "": SubResource("AnimationLibrary_4pksw")
 }
 autoplay = "move"
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("194_y7ynf")
-autoplay = true
