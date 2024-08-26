@@ -13,9 +13,15 @@ var isCrouching = false
 func _physics_process(delta: float) -> void:
 	print(on_ladder)
 	
+	#match state:
+		#States.AIR:
+			#pass
+		#States.FLOOR:
+			#pass
+		#
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() or (not on_ladder):
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -51,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if on_ladder == true:
-		animated_sprite.play()
+		animated_sprite.play("climb")
 
 	move_and_slide()
 
