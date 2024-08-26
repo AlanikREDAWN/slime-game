@@ -1,27 +1,31 @@
 extends CharacterBody2D
-
+#
 #enum States { AIR = 1, FLOOR, LADDER }
 #var state = States.AIR
+var on_sewer := false
+var on_door := false
 var on_ladder := false
 const SPEED = 500.0
 const JUMP_VELOCITY = -800.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var you_win: Label = $"../YouWin"
 
 var isCrouching = false
 
 func _physics_process(delta: float) -> void:
-	print(on_ladder)
+	print(on_door)
 	
 	#match state:
 		#States.AIR:
-			#pass
+			#animated_sprite.play("jump")
+			#if Input.is_action_pressed("move_right")
 		#States.FLOOR:
 			#pass
-		#
+		
 	
 	# Add the gravity.
-	if not is_on_floor() or (not on_ladder):
+	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -58,7 +62,23 @@ func _physics_process(delta: float) -> void:
 	
 	if on_ladder == true:
 		animated_sprite.play("climb")
+		if Input.is_action_pressed("down"):
+			velocity.y = SPEED*delta*35
+		elif Input.is_action_pressed("up"):
+			velocity.y = -SPEED*delta*35
+		else:
+			velocity.y = 0
 
+	if on_door == true:
+		if Input.is_action_pressed("down"):
+			self.position = Vector2(198, 1299)
+	
+	if on_sewer == true:
+		if Input.is_action_pressed("down"):
+			you_win.visible = true
+
+	#if Input.is_action_pressed("down"):
+		#self.position = Vector2(198, 1299)
 	move_and_slide()
 
 
@@ -68,3 +88,19 @@ func _on_ladder_checker_body_entered(body: Node2D) -> void:
 
 func _on_ladder_checker_body_exited(body: Node2D) -> void:
 	on_ladder = false
+
+
+func _on_door_checker_body_entered(body: Node2D) -> void:
+	on_door = true
+
+
+func _on_door_checker_body_exited(body: Node2D) -> void:
+	on_door = false
+
+
+func _on_sewer_checker_body_entered(body: Node2D) -> void:
+	on_sewer = true
+
+
+func _on_sewer_checker_body_exited(body: Node2D) -> void:
+	on_sewer = false

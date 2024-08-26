@@ -100,5 +100,25 @@ collision_mask = 64
 position = Vector2(4, -59)
 shape = SubResource("CircleShape2D_hwc8j")
 
+[node name="DoorChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorChecker"]
+position = Vector2(4, -59)
+shape = SubResource("CircleShape2D_hwc8j")
+
+[node name="SewerChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SewerChecker"]
+position = Vector2(4, -59)
+shape = SubResource("CircleShape2D_hwc8j")
+
 [connection signal="body_entered" from="LadderChecker" to="." method="_on_ladder_checker_body_entered"]
 [connection signal="body_exited" from="LadderChecker" to="." method="_on_ladder_checker_body_exited"]
+[connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
+[connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]
+[connection signal="body_entered" from="SewerChecker" to="." method="_on_sewer_checker_body_entered"]
+[connection signal="body_exited" from="SewerChecker" to="." method="_on_sewer_checker_body_exited"]

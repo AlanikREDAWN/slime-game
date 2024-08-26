@@ -275,6 +275,13 @@ tile_set = ExtResource("4_p0gct")
 tile_map_data = PackedByteArray("AACWABEADAAPAAIAAACWADEADAAPAAIAADCWACkADAAOAAIAAACWACEADAAOAAIAAACWABkADAAOAAIAAABiAOv/DAAPAAIAAABiAAsADAAPAAIAADBiAAMADAAOAAIAAABiAPv/DAAOAAIAAABiAPP/DAAOAAIAAADU/+b/DAAPAAIAAADU/wYADAAPAAIAADDU//7/DAAOAAIAAADU//b/DAAOAAIAAADU/+7/DAAOAAIAAAA=")
 tile_set = ExtResource("4_p0gct")
 
+[node name="TileMapDoors" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADt//7/DAAWAAEAAACG/xYADAAWAAEAAACj/7//DAAWAAEAAABdAL3/DAAWAAEAAADt//b/DAAXAAEAAABdALX/DAAXAAEAAACj/7f/DAAXAAEAAACG/w4ADAAXAAEAAAA=")
+tile_set = ExtResource("4_p0gct")
+
+[node name="TileMapSewer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("4_p0gct")
+
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("190_cydjr")]
@@ -383,3 +390,13 @@ libraries = {
 "": SubResource("AnimationLibrary_4pksw")
 }
 autoplay = "move"
+
+[node name="YouWin" type="Label" parent="."]
+visible = false
+offset_left = -2379.0
+offset_top = -635.0
+offset_right = 2621.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("2_f4f4q")
+theme_override_font_sizes/font_size = 1000
+text = "You Win!"
