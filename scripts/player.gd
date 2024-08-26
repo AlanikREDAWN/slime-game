@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-
+#enum States { AIR = 1, FLOOR, LADDER }
+#var state = States.AIR
+var on_ladder := false
 const SPEED = 500.0
 const JUMP_VELOCITY = -800.0
 
@@ -9,6 +11,9 @@ const JUMP_VELOCITY = -800.0
 var isCrouching = false
 
 func _physics_process(delta: float) -> void:
+	print(on_ladder)
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -44,5 +49,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if on_ladder == true:
+		animated_sprite.play()
 
 	move_and_slide()
+
+
+func _on_ladder_checker_body_entered(body: Node2D) -> void:
+	on_ladder = true
+
+
+func _on_ladder_checker_body_exited(body: Node2D) -> void:
+	on_ladder = false

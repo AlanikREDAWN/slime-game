@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://du6dr6rsym36c"]
+[gd_scene load_steps=14 format=3 uid="uid://du6dr6rsym36c"]
 
 [ext_resource type="Texture2D" uid="uid://cain70s4crxg3" path="res://assets/blue_slime 2/front/gel front0000.png" id="1_1f6lv"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aohyc"]
 [ext_resource type="Texture2D" uid="uid://bpx0x1athdgal" path="res://assets/blue_slime 2/front/gel front0001.png" id="2_eilfm"]
+[ext_resource type="Texture2D" uid="uid://mt267abh1s3h" path="res://assets/blue_slime 2/back/gel back0000.png" id="2_kgm2k"]
 [ext_resource type="Texture2D" uid="uid://d0p5mny0ha1v" path="res://assets/blue_slime 2/front/gel front0002.png" id="3_esyg6"]
 [ext_resource type="Texture2D" uid="uid://4gofhllhy78e" path="res://assets/blue_slime 2/front/gel front0003.png" id="4_h8ull"]
 [ext_resource type="Texture2D" uid="uid://c1xdvnlogr6ba" path="res://assets/blue_slime 2/side/gel side0000.png" id="6_w3xpi"]
@@ -12,6 +13,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tdvnt"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kgm2k")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_esyg6")
@@ -66,6 +75,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq7w8"]
 radius = 52.0096
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hwc8j"]
+radius = 52.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_aohyc")
@@ -73,9 +85,20 @@ script = ExtResource("1_aohyc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -80)
 sprite_frames = SubResource("SpriteFrames_tdvnt")
-animation = &"duck"
+animation = &"climb"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -59)
 shape = SubResource("CircleShape2D_tq7w8")
+
+[node name="LadderChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderChecker"]
+position = Vector2(4, -59)
+shape = SubResource("CircleShape2D_hwc8j")
+
+[connection signal="body_entered" from="LadderChecker" to="." method="_on_ladder_checker_body_entered"]
+[connection signal="body_exited" from="LadderChecker" to="." method="_on_ladder_checker_body_exited"]

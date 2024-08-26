@@ -58,6 +58,12 @@ duck={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="platform"
+2d_physics/layer_2="player"
+2d_physics/layer_7="ladder"
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
