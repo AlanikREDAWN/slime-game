@@ -3,18 +3,19 @@ extends CharacterBody2D
 #enum States { AIR = 1, FLOOR, LADDER }
 #var state = States.AIR
 var on_sewer := false
-var on_door := false
+#var on_door := false
 var on_ladder := false
 const SPEED = 500.0
 const JUMP_VELOCITY = -800.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var you_win: Label = $"../YouWin"
+@onready var tile_map_sewer: TileMapLayer = $"../TileMapSewer"
 
 var isCrouching = false
 
 func _physics_process(delta: float) -> void:
-	print(on_door)
+	#print(on_door)
 	
 	#match state:
 		#States.AIR:
@@ -69,9 +70,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = 0
 
-	if on_door == true:
+	if Global.on_door == true:
 		if Input.is_action_pressed("down"):
-			self.position = Vector2(198, 1299)
+			#self.position = Vector2(198, 1299)
+			if ("Door1" in Global.doors_entered) and ("Door2" in Global.doors_entered) and ("Door3" in Global.doors_entered) and ("Door4" in Global.doors_entered):
+				tile_map_sewer.visible = true
 	
 	if on_sewer == true:
 		if Input.is_action_pressed("down"):
@@ -91,11 +94,11 @@ func _on_ladder_checker_body_exited(body: Node2D) -> void:
 
 
 func _on_door_checker_body_entered(body: Node2D) -> void:
-	on_door = true
+	Global.on_door = true
 
 
 func _on_door_checker_body_exited(body: Node2D) -> void:
-	on_door = false
+	Global.on_door = false
 
 
 func _on_sewer_checker_body_entered(body: Node2D) -> void:

@@ -4,6 +4,7 @@ extends Node
 
 var coinsCollected = 0
 
+
 func add_coin():
 	coinsCollected += 1
 	coins_label.text = "Coins: " + str(coinsCollected)
