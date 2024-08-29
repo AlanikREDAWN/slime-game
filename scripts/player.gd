@@ -15,11 +15,6 @@ const JUMP_VELOCITY = -800.0
 
 var isCrouching = false
 
-func _ready() -> void:
-	#tile_map_sewer.enabled = false
-	#tile_map_sewer.enabled = true
-	pass
-
 func _physics_process(delta: float) -> void:
 	#print(on_door)
 	
@@ -89,8 +84,6 @@ func _physics_process(delta: float) -> void:
 
 	if "Door1" in Global.doors_entered and "Door2" in Global.doors_entered and "Door3" in Global.doors_entered and "Door4" in Global.doors_entered:
 		tile_map_sewer.visible = true
-	if Input.is_action_pressed("down"):
-		pass
 	
 	if on_sewer == true:
 		if Input.is_action_pressed("down"):

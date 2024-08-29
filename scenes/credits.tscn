@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtlpocsi1m5hi"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_3d5eh"]
+[ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_yulve"]
+[ext_resource type="FontFile" uid="uid://b3m5je0xkovy2" path="res://assets/ken_fonts/kenpixel_mini.ttf" id="2_xpm2d"]
+[ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="4_v5ncy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_istpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqev7"]
+bg_color = Color(0.756087, 0.756087, 0.756087, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avqkh"]
+bg_color = Color(0.603248, 0.603248, 0.603248, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqdx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3d5eh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.131
+anchor_right = 0.5
+anchor_bottom = 0.131
+offset_left = -264.0
+offset_top = -52.888
+offset_right = 270.0
+offset_bottom = 53.112
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("1_yulve")
+theme_override_font_sizes/font_size = 70
+text = "Credits:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.470679
+anchor_right = 0.5
+anchor_bottom = 0.470679
+offset_left = -389.5
+offset_top = -133.5
+offset_right = 389.5
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xpm2d")
+theme_override_font_sizes/font_size = 32
+text = "game created by Kittycat aka Lilia
+right arrow key/D: move right
+up arrow key/space bar/A:  jump; on ladder - climb up
+down arrow key/shift/S: duck; on ladder - climb down;
+go through doors/action key
+enter key: squeak"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.809414
+anchor_right = 0.5
+anchor_bottom = 0.809414
+offset_left = -82.5
+offset_top = -52.5
+offset_right = 82.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_yulve")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_istpp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yqev7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_avqkh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhqdx")
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="backClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v5ncy")
+bus = &"SFX"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="finished" from="backClick" to="." method="_on_back_click_finished"]
