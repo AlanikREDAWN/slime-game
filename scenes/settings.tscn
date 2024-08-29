@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtlpocsi1m5hi"]
+[gd_scene load_steps=7 format=3 uid="uid://c3c0xltb6u78p"]
 
-[ext_resource type="Script" path="res://scripts/credits.gd" id="1_3d5eh"]
-[ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_yulve"]
-[ext_resource type="FontFile" uid="uid://b3m5je0xkovy2" path="res://assets/ken_fonts/kenpixel_mini.ttf" id="2_xpm2d"]
-[ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="4_v5ncy"]
+[ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_5yr4w"]
+[ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="2_r015o"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_istpp"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jb1j"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqev7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebrgi"]
 bg_color = Color(0.756087, 0.756087, 0.756087, 1)
 border_width_left = 5
 border_width_top = 5
@@ -21,7 +19,7 @@ corner_radius_bottom_left = 40
 shadow_size = 5
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avqkh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onc8e"]
 bg_color = Color(0.603248, 0.603248, 0.603248, 1)
 border_width_left = 5
 border_width_top = 5
@@ -35,7 +33,7 @@ corner_radius_bottom_left = 40
 shadow_size = 5
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqdx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r88t"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 5
 border_width_top = 5
@@ -49,14 +47,13 @@ corner_radius_bottom_left = 40
 shadow_size = 5
 shadow_offset = Vector2(0, 3)
 
-[node name="Credits" type="Control"]
+[node name="Settings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3d5eh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -71,33 +68,10 @@ offset_right = 270.0
 offset_bottom = 53.112
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("1_yulve")
+theme_override_fonts/font = ExtResource("1_5yr4w")
 theme_override_font_sizes/font_size = 70
-text = "Credits:"
+text = "Settings:"
 horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.470679
-anchor_right = 0.5
-anchor_bottom = 0.470679
-offset_left = -389.5
-offset_top = -133.5
-offset_right = 389.5
-offset_bottom = 133.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_xpm2d")
-theme_override_font_sizes/font_size = 32
-text = "game created by Kittycat aka Lilia
-Slime character - Andhegames from opengameart.org
-Fonts - Kenney.nl
-Platforms and background items - Kenney.nl
-Music and sound effects - "
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
@@ -116,18 +90,15 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_yulve")
+theme_override_fonts/font = ExtResource("1_5yr4w")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_istpp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yqev7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_avqkh")
-theme_override_styles/normal = SubResource("StyleBoxFlat_lhqdx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3jb1j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ebrgi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_onc8e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2r88t")
 text = "Back"
 metadata/_edit_use_anchors_ = true
 
 [node name="backClick" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_v5ncy")
+stream = ExtResource("2_r015o")
 bus = &"SFX"
-
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="finished" from="backClick" to="." method="_on_back_click_finished"]
