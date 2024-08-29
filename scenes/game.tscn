@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://ctlv5nu2jt374"]
+[gd_scene load_steps=33 format=4 uid="uid://ctlv5nu2jt374"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2jlxm"]
 [ext_resource type="PackedScene" uid="uid://du6dr6rsym36c" path="res://scenes/player.tscn" id="1_a06q4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cktmevhyjgyq1" path="res://scenes/door.tscn" id="11_0sbtf"]
 [ext_resource type="Script" path="res://scenes/door2.gd" id="12_ttpv8"]
 [ext_resource type="Script" path="res://scenes/door3.gd" id="13_6sr2o"]
+[ext_resource type="Script" path="res://scenes/door4.gd" id="14_do8y6"]
 [ext_resource type="PackedScene" uid="uid://bynmkd4ucv50r" path="res://scenes/small_platform.tscn" id="185_m1vul"]
 [ext_resource type="Script" path="res://scripts/small_platform3.gd" id="186_7ids2"]
 [ext_resource type="Script" path="res://scripts/small_platform.gd" id="186_gofe4"]
@@ -284,7 +285,6 @@ tile_map_data = PackedByteArray("AADt//7/DAAWAAEAAACG/xYADAAWAAEAAACj/7//DAAWAAE
 tile_set = ExtResource("4_p0gct")
 
 [node name="TileMapSewer" type="TileMapLayer" parent="."]
-visible = false
 tile_set = ExtResource("4_p0gct")
 
 [node name="Coins" type="Node" parent="."]
@@ -419,7 +419,7 @@ script = ExtResource("13_6sr2o")
 
 [node name="Door4" parent="." instance=ExtResource("11_0sbtf")]
 position = Vector2(-1944, 325)
-script = null
+script = ExtResource("14_do8y6")
 
 [connection signal="body_entered" from="Door1" to="Door1" method="_on_body_entered"]
 [connection signal="body_exited" from="Door1" to="Door1" method="_on_body_exited"]
@@ -427,3 +427,5 @@ script = null
 [connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
 [connection signal="body_entered" from="Door3" to="Door3" method="_on_body_entered"]
 [connection signal="body_exited" from="Door3" to="Door3" method="_on_body_exited"]
+[connection signal="body_entered" from="Door4" to="Door4" method="_on_body_entered"]
+[connection signal="body_exited" from="Door4" to="Door4" method="_on_body_exited"]
