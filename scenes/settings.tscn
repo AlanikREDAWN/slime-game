@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3c0xltb6u78p"]
+[gd_scene load_steps=8 format=3 uid="uid://c3c0xltb6u78p"]
 
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/FlatUI4/kenneyUI-blue.tres" id="1_4ends"]
 [ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_5yr4w"]
 [ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="2_r015o"]
 
@@ -54,6 +55,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_4ends")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -102,3 +104,58 @@ metadata/_edit_use_anchors_ = true
 [node name="backClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_r015o")
 bus = &"SFX"
+
+[node name="SettingsTabs" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = -192.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4ends")
+current_tab = 0
+
+[node name="Video" type="TabBar" parent="SettingsTabs"]
+layout_mode = 2
+theme = ExtResource("1_4ends")
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VideoSettings" type="GridContainer" parent="SettingsTabs/Video/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="DisplayModeLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Display Mode"
+
+[node name="DisplayOptionButton" type="OptionButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 10
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="VsyncLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
