@@ -1,18 +1,15 @@
 extends Area2D
 
-@onready var player: CharacterBody2D = $"../Player"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(self.name)
+	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
 	if Global.on_door == true:
 		if Input.is_action_pressed("down"):
 			Global.doors_entered.append(self.name)
 			print(Global.doors_entered)
-			player.position = Vector2(198, 1299)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,7 +18,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	Global.on_door = true
-	
 
 
 func _on_body_exited(body: Node2D) -> void:

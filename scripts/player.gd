@@ -70,20 +70,20 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = 0
 
-	#if Global.on_door == true:
-		#if Input.is_action_pressed("down"):
-			#self.position = Vector2(198, 1299)
+	if Global.on_door == true:
+		if Input.is_action_pressed("down"):
+			self.position = Vector2(198, 1299)
 			
 	
-	if "Door1" in Global.doors_entered:
-		print("Door 1 entered")
-	if "Door2" in Global.doors_entered:
-		print("Door 2 entered")
-	if "Door3" in Global.doors_entered:
-		print("Door 3 entered")
-	if "Door4" in Global.doors_entered:
-		print("Door 4 entered")
-	if ("Door1" in Global.doors_entered) and ("Door2" in Global.doors_entered) and ("Door3" in Global.doors_entered) and ("Door4" in Global.doors_entered):
+	#if "Door1" in Global.doors_entered:
+		#print("Door 1 entered")
+	#if "Door2" in Global.doors_entered:
+		#print("Door 2 entered")
+	#if "Door3" in Global.doors_entered:
+		#print("Door 3 entered")
+	#if "Door4" in Global.doors_entered:
+		#print("Door 4 entered")
+	if "Door1" in Global.doors_entered and "Door2" in Global.doors_entered and "Door3" in Global.doors_entered and "Door4" in Global.doors_entered:
 		tile_map_sewer.visible = true
 	
 	if on_sewer == true:

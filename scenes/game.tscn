@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=4 uid="uid://ctlv5nu2jt374"]
+[gd_scene load_steps=32 format=4 uid="uid://ctlv5nu2jt374"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2jlxm"]
 [ext_resource type="PackedScene" uid="uid://du6dr6rsym36c" path="res://scenes/player.tscn" id="1_a06q4"]
 [ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="2_f4f4q"]
 [ext_resource type="TileSet" uid="uid://btrf0f0pv2c5l" path="res://assets/tileSet.tres" id="4_p0gct"]
 [ext_resource type="PackedScene" uid="uid://cktmevhyjgyq1" path="res://scenes/door.tscn" id="11_0sbtf"]
+[ext_resource type="Script" path="res://scenes/door2.gd" id="12_ttpv8"]
+[ext_resource type="Script" path="res://scenes/door3.gd" id="13_6sr2o"]
 [ext_resource type="PackedScene" uid="uid://bynmkd4ucv50r" path="res://scenes/small_platform.tscn" id="185_m1vul"]
 [ext_resource type="Script" path="res://scripts/small_platform3.gd" id="186_7ids2"]
 [ext_resource type="Script" path="res://scripts/small_platform.gd" id="186_gofe4"]
@@ -409,9 +411,19 @@ position = Vector2(1496, -1019)
 
 [node name="Door2" parent="." instance=ExtResource("11_0sbtf")]
 position = Vector2(-296, -59)
+script = ExtResource("12_ttpv8")
 
 [node name="Door3" parent="." instance=ExtResource("11_0sbtf")]
 position = Vector2(-1480, -1067)
+script = ExtResource("13_6sr2o")
 
 [node name="Door4" parent="." instance=ExtResource("11_0sbtf")]
 position = Vector2(-1944, 325)
+script = null
+
+[connection signal="body_entered" from="Door1" to="Door1" method="_on_body_entered"]
+[connection signal="body_exited" from="Door1" to="Door1" method="_on_body_exited"]
+[connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
+[connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
+[connection signal="body_entered" from="Door3" to="Door3" method="_on_body_entered"]
+[connection signal="body_exited" from="Door3" to="Door3" method="_on_body_exited"]
