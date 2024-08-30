@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3c0xltb6u78p"]
+[gd_scene load_steps=9 format=3 uid="uid://c3c0xltb6u78p"]
 
 [ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/FlatUI4/kenneyUI-blue.tres" id="1_4ends"]
 [ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_5yr4w"]
 [ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="2_r015o"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="2_t4rs3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jb1j"]
 
@@ -56,6 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4ends")
+script = ExtResource("2_t4rs3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -192,29 +194,85 @@ max_value = 500.0
 value = 500.0
 
 [node name="BloomLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-visible = false
 layout_mode = 2
 text = "Bloom"
 
 [node name="BloomButton" type="CheckButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+[node name="BrightnessLabel" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 10
+text = "Brightness"
 
-[node name="MaxFpsValue" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer2"]
-layout_mode = 2
-text = "Max"
-
-[node name="MaxFpsSlider" type="HSlider" parent="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer2"]
+[node name="BrightnessSlider" type="HSlider" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
-min_value = 30.0
-max_value = 500.0
-value = 500.0
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Audio" type="TabBar" parent="SettingsTabs"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_4ends")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="AudioSettings" type="GridContainer" parent="SettingsTabs/Audio/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+
+[node name="MusicVolumeLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+
+[node name="SfxVolumeLabel" type="Label" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/AudioSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
