@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfnaaoueqh3im"]
+
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/FlatUI4/kenneyUI-blue.tres" id="1_81dmd"]
+[ext_resource type="Script" path="res://scripts/fps_label.gd" id="2_taxhj"]
+
+[node name="FpsLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_81dmd")
+theme_override_font_sizes/font_size = 40
+text = "FPS: 60"
+script = ExtResource("2_taxhj")
