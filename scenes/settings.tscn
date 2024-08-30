@@ -276,3 +276,12 @@ size_flags_vertical = 1
 min_value = -50.0
 max_value = 0.0
 value = -10.0
+
+[connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
+[connection signal="toggled" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncButton" to="." method="_on_vsync_button_toggled"]
+[connection signal="toggled" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayFpsButton" to="." method="_on_display_fps_button_toggled"]
+[connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/HBoxContainer/MaxFpsSlider" to="." method="_on_max_fps_slider_value_changed"]
+[connection signal="toggled" from="SettingsTabs/Video/MarginContainer/VideoSettings/BloomButton" to="." method="_on_bloom_button_toggled"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
