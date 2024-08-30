@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_8ypbf"]
 [ext_resource type="Script" path="res://scripts/how_to_play.gd" id="1_mrd31"]
 [ext_resource type="FontFile" uid="uid://b3m5je0xkovy2" path="res://assets/ken_fonts/kenpixel_mini.ttf" id="2_60f8h"]
-[ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="4_g6s57"]
+[ext_resource type="AudioStream" uid="uid://dwygxvhfvhdq8" path="res://assets/sounds/001_Hover_01.mp3" id="4_isghe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxchv"]
 
@@ -127,7 +127,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="backClick" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_g6s57")
+stream = ExtResource("4_isghe")
 bus = &"SFX"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -20,4 +20,6 @@ func _on_back_button_pressed() -> void:
 
 func _on_back_click_finished() -> void:
 	if back_pressed == true:
+		back_pressed = false
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://ctlv5nu2jt374"]
+[gd_scene load_steps=35 format=4 uid="uid://ctlv5nu2jt374"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2jlxm"]
 [ext_resource type="PackedScene" uid="uid://du6dr6rsym36c" path="res://scenes/player.tscn" id="1_a06q4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/door3.gd" id="13_6sr2o"]
 [ext_resource type="Script" path="res://scenes/door4.gd" id="14_do8y6"]
 [ext_resource type="PackedScene" uid="uid://bfnaaoueqh3im" path="res://scenes/fps_label.tscn" id="15_5v0ro"]
+[ext_resource type="PackedScene" uid="uid://rt2raiokvbax" path="res://scenes/ui/pause_menu.tscn" id="16_t6bjs"]
 [ext_resource type="PackedScene" uid="uid://bynmkd4ucv50r" path="res://scenes/small_platform.tscn" id="185_m1vul"]
 [ext_resource type="Script" path="res://scripts/small_platform3.gd" id="186_7ids2"]
 [ext_resource type="Script" path="res://scripts/small_platform.gd" id="186_gofe4"]
@@ -425,11 +426,16 @@ position = Vector2(-1944, 325)
 script = ExtResource("14_do8y6")
 
 [node name="FpsLabel" parent="." instance=ExtResource("15_5v0ro")]
+visible = false
 offset_left = 2056.0
 offset_top = -1536.0
 offset_right = 3004.0
 offset_bottom = -1311.0
 theme_override_font_sizes/font_size = 200
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_t6bjs")]
 
 [connection signal="body_entered" from="Door1" to="Door1" method="_on_body_entered"]
 [connection signal="body_exited" from="Door1" to="Door1" method="_on_body_exited"]

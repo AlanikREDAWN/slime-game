@@ -12,7 +12,8 @@ extends Control
 @onready var master_volume_slider: HSlider = $SettingsTabs/Audio/MarginContainer/AudioSettings/MasterVolumeSlider
 @onready var music_volume_slider: HSlider = $SettingsTabs/Audio/MarginContainer/AudioSettings/MusicVolumeSlider
 @onready var sfx_volume_slider: HSlider = $SettingsTabs/Audio/MarginContainer/AudioSettings/SfxVolumeSlider
-
+var back_pressed := false
+@onready var back_click: AudioStreamPlayer2D = $backClick
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,16 +41,27 @@ func _on_display_fps_button_toggled(toggled_on: bool) -> void:
 
 func _on_max_fps_slider_value_changed(value: float) -> void:
 	Global.set_max_fps(value)
-	max_fps_value.text = str(value)
+	max_fps_value.text = str(value) if value < max_fps_slider.max_value else "Max"
 
 
 func _on_master_volume_slider_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	Global.update_master_vol(value)
 
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	Global.update_music_vol(value)
 
 
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	Global.update_sfx_vol(value)
+
+
+func _on_back_button_pressed() -> void:
+	back_click.play()
+	back_pressed = true
+
+
+func _on_back_click_finished() -> void:
+	if back_pressed == true:
+		back_pressed = false
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

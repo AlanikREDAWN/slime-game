@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/FlatUI4/kenneyUI-blue.tres" id="1_4ends"]
 [ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="1_5yr4w"]
-[ext_resource type="AudioStream" uid="uid://mugd7bxw8xu3" path="res://assets/sounds/001_Hover_01.wav" id="2_r015o"]
 [ext_resource type="Script" path="res://scripts/settings.gd" id="2_t4rs3"]
+[ext_resource type="AudioStream" uid="uid://dwygxvhfvhdq8" path="res://assets/sounds/001_Hover_01.mp3" id="4_i15nv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jb1j"]
 
@@ -104,7 +104,7 @@ text = "Back"
 metadata/_edit_use_anchors_ = true
 
 [node name="backClick" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_r015o")
+stream = ExtResource("4_i15nv")
 bus = &"SFX"
 
 [node name="SettingsTabs" type="TabContainer" parent="."]
@@ -293,6 +293,8 @@ min_value = -50.0
 max_value = 0.0
 value = -10.0
 
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="finished" from="backClick" to="." method="_on_back_click_finished"]
 [connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
 [connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncOptionButton" to="." method="_on_vsync_option_button_item_selected"]
 [connection signal="toggled" from="SettingsTabs/Video/MarginContainer/VideoSettings/VsyncButton" to="." method="_on_vsync_button_toggled"]

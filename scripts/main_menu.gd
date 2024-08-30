@@ -47,3 +47,6 @@ func _on_audio_stream_player_2d_finished() -> void:
 	elif credits_pressed == true:
 		credits_pressed = false
 		get_tree().change_scene_to_file("res://scenes/credits.tscn")
+	elif settings_pressed == true:
+		settings_pressed = false
+		get_tree().change_scene_to_file("res://scenes/settings.tscn")
