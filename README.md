@@ -14,3 +14,7 @@ Navigate to the folder labeled build. Once there, download the folder labeled wi
   - Open the .x86_64 file
 - Mac:
   - Open the .dmg file
+
+Demo Video:
+
+https://github.com/user-attachments/assets/894e60b2-094e-4d84-b0f3-3738a232f8f9
