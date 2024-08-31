@@ -1,5 +1,7 @@
 extends Control
 
+#@onready var game: Node2D = $"."
+
 # Video Settings
 @onready var display_option_button: OptionButton = $SettingsTabs/Video/MarginContainer/VideoSettings/DisplayOptionButton
 #@onready var vsync_button: CheckButton = $SettingsTabs/Video/MarginContainer/VideoSettings/VsyncButton
@@ -64,4 +66,6 @@ func _on_back_button_pressed() -> void:
 func _on_back_click_finished() -> void:
 	if back_pressed == true:
 		back_pressed = false
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		if Global.back_button_path == "res://scenes/game.tscn":
+			Global.game_paused = true
+		get_tree().change_scene_to_file(Global.back_button_path)
