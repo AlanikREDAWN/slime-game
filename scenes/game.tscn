@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=4 uid="uid://ctlv5nu2jt374"]
+[gd_scene load_steps=36 format=4 uid="uid://ctlv5nu2jt374"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2jlxm"]
 [ext_resource type="PackedScene" uid="uid://du6dr6rsym36c" path="res://scenes/player.tscn" id="1_a06q4"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_hw31v"]
 [ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="2_f4f4q"]
 [ext_resource type="TileSet" uid="uid://btrf0f0pv2c5l" path="res://assets/tileSet.tres" id="4_p0gct"]
 [ext_resource type="PackedScene" uid="uid://cktmevhyjgyq1" path="res://scenes/door.tscn" id="11_0sbtf"]
@@ -247,6 +248,8 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_hw31v")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -434,6 +437,7 @@ offset_bottom = -1311.0
 theme_override_font_sizes/font_size = 200
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_t6bjs")]
 
