@@ -173,8 +173,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("1_222v3")
 theme_override_font_sizes/font_size = 70
-text = "Game Name
-Here"
+text = "Slime
+Game"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
