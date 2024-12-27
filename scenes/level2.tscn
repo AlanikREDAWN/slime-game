@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=4 uid="uid://dd51t3rmfijh6"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_cfj8w"]
+[ext_resource type="Script" path="res://scenes/level_2.gd" id="1_dcjq5"]
+[ext_resource type="FontFile" uid="uid://b4h7ccgvjcco3" path="res://assets/ken_fonts/kenpixel.ttf" id="2_xyf02"]
+[ext_resource type="PackedScene" uid="uid://du6dr6rsym36c" path="res://scenes/player.tscn" id="3_vwsj0"]
+[ext_resource type="TileSet" uid="uid://btrf0f0pv2c5l" path="res://assets/tileSet.tres" id="4_c87to"]
+[ext_resource type="PackedScene" uid="uid://cktmevhyjgyq1" path="res://scenes/door.tscn" id="5_ifp6h"]
+[ext_resource type="Script" path="res://scenes/door2.gd" id="6_4xa75"]
+[ext_resource type="Script" path="res://scenes/door3.gd" id="7_0h55g"]
+[ext_resource type="Script" path="res://scenes/door4.gd" id="8_vgalb"]
+[ext_resource type="Script" path="res://scenes/door5.gd" id="9_wf45n"]
+[ext_resource type="PackedScene" uid="uid://dp2ospmb520pi" path="res://scenes/coin.tscn" id="10_758jc"]
+
+[node name="level2" type="Node2D"]
+script = ExtResource("1_dcjq5")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_cfj8w")
+
+[node name="CoinsLabel" type="Label" parent="GameManager"]
+offset_left = -2625.0
+offset_top = -1529.0
+offset_right = -1575.0
+offset_bottom = -1096.0
+theme_override_fonts/font = ExtResource("2_xyf02")
+theme_override_font_sizes/font_size = 150
+text = "Coins: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(175, 14)
+zoom = Vector2(0.2, 0.2)
+
+[node name="Player" parent="." instance=ExtResource("3_vwsj0")]
+z_index = 5
+position = Vector2(-1947, 1386)
+
+[node name="TileMapSewer" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AABNAF4ADAAUAAQAAAA=")
+tile_set = ExtResource("4_c87to")
+
+[node name="TileMapDoors" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AACm/0oADAAWAAEAAACm/0IADAAXAAEAAAAFADoADAAWAAEAAABOACoADAAWAAEAAACNABoADAAWAAEAAACuAAoADAAWAAEAAAAFADIADAAXAAEAAABOACIADAAXAAEAAACNABIADAAXAAEAAACuAAIADAAXAAEAAAA=")
+tile_set = ExtResource("4_c87to")
+
+[node name="TileMapMid" type="TileMapLayer" parent="."]
+position = Vector2(0, 2)
+tile_map_data = PackedByteArray("AAB+/2IADAASAAAAAACG/2IADAASAAAAAACO/2IADAASAAAAAACW/2IADAASAAAAAACe/2IADAASAAAAAACm/2IADAASAAAAAACu/2IADAASAAAAAAC2/2IADAASAAAAAAC+/2IADAASAAAAAADG/2IADAASAAAAAADO/2IADAASAAAAAADe/2IADAASAAAAAADm/2IADAASAAAAAADu/2IADAASAAAAAAD2/2IADAASAAAAAAD+/2IADAASAAAAAAAGAGIADAASAAAAAAAOAGIADAASAAAAAAAWAGIADAASAAAAAAAeAGIADAASAAAAAAAmAGIADAASAAAAAAAuAGIADAASAAAAAAA2AGIADAASAAAAAAA+AGIADAASAAAAAABGAGIADAASAAAAAABOAGIADAASAAAAAABWAGIADAASAAAAAABeAGIADAASAAAAAABmAGIADAASAAAAAABuAGIADAASAAAAAAB2AGIADAASAAAAAAB+AGIADAASAAAAAACGAGIADAASAAAAAACOAGIADAASAAAAAACWAGIADAASAAAAAAB2/2IADAASAAAAAABu/2IADAASAAAAAABm/2IADAASAAAAAABe/2IADAASAAAAAABW/2IADAASAAAAAACeAGIADAASAAAAAACmAGIADAASAAAAAACuAGIADAASAAAAAAC2AGIADAASAAAAAAC+AGIADAASAAAAAAB7/1UADgAAAAAAAABz/1gADQAAAAAAAACKAFgADQAAAAAAAAB+AFUADgAAAAAAAABbAFoADAAZAAEAAACUAFoADAAZAAEAAACdAFoADAAaAAEAAABkAFoADAAaAAEAAAB3/1sADAAKAAMAAADW/2IADAASAAAAAAD///X/DAAVAAQAAAC+/1oADAAUAAAAAAC+/1IADAAUAAAAAAC2/1IADAAUAAAAAACu/1IADAAUAAAAAACm/1IADAAUAAAAAACe/1IADAAUAAAAAACW/1IADAAUAAAAAABiAFoADAAZAAEAAABrAFoADAAZAAEAAABuAFUADgAAAAAAAACuABIADAAUAAAAAAC2ABIADAAUAAAAAAC2ABoADAAUAAAAAAC2ACIADAAUAAAAAAC2ACoADAAUAAAAAAC2ADIADAAUAAAAAAC2ADoADAAUAAAAAAC2AEIADAAUAAAAAAC2AEoADAAUAAAAAAC2AFIADAAUAAAAAAC2AFoADAAUAAAAAADm/0IADAAUAAAAAADu/0IADAAUAAAAAAD2/0IADAAUAAAAAAD+/0IADAAUAAAAAAAGAEIADAAUAAAAAAAOAEIADAAUAAAAAAAOAEoADAAUAAAAAAAOAFIADAAUAAAAAAAOAFoADAAUAAAAAAA2ADIADAAUAAAAAAA+ADIADAAUAAAAAABGADIADAAUAAAAAABOADIADAAUAAAAAABWADIADAAUAAAAAABWADoADAAUAAAAAABWAEIADAAUAAAAAABWAEoADAAUAAAAAABWAFIADAAUAAAAAABWAFoADAAUAAAAAAB9ACIADAAUAAAAAACFACIADAAUAAAAAACNACIADAAUAAAAAACVACIADAAUAAAAAACVACoADAAUAAAAAACVADIADAAUAAAAAACVADoADAAUAAAAAACVAEIADAAUAAAAAACVAEoADAAUAAAAAACVAFIADAAUAAAAAACVAFoADAAUAAAAAAA=")
+tile_set = ExtResource("4_c87to")
+
+[node name="TileMapLadders" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAXAFoADAAPAAIAADAXAFIADAAOAAIAAAAXAEoADAAOAAIAAAAXAEIADAAPAAIAAABfAFoADAAPAAIAADBfAFIADAAOAAIAAABfAEoADAAOAAIAAABfAEIADAAOAAIAAABfADoADAAOAAIAAABfADIADAAPAAIAAACeAFoADAAPAAIAADCeAFIADAAOAAIAAACeAEoADAAOAAIAAACeAEIADAAOAAIAAACeADoADAAOAAIAAACeADIADAAOAAIAAACeACoADAAOAAIAAACeACIADAAPAAIAAAA=")
+tile_set = ExtResource("4_c87to")
+
+[node name="Door1" parent="." instance=ExtResource("5_ifp6h")]
+position = Vector2(-1432, 1157)
+
+[node name="Door2" parent="." instance=ExtResource("5_ifp6h")]
+position = Vector2(88, 901)
+script = ExtResource("6_4xa75")
+
+[node name="Door3" parent="." instance=ExtResource("5_ifp6h")]
+position = Vector2(1256, 645)
+script = ExtResource("7_0h55g")
+
+[node name="Door4" parent="." instance=ExtResource("5_ifp6h")]
+position = Vector2(2264, 389)
+script = ExtResource("8_vgalb")
+
+[node name="Door5" parent="." instance=ExtResource("5_ifp6h")]
+position = Vector2(2792, 133)
+script = ExtResource("9_wf45n")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(-1176, 1456)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(-1048, 1176)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(88, 1328)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(232, 928)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(1384, 672)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(2128, 408)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("10_758jc")]
+position = Vector2(2936, 160)
+
+[connection signal="body_entered" from="Door1" to="Door1" method="_on_body_entered"]
+[connection signal="body_exited" from="Door1" to="Door1" method="_on_body_exited"]
+[connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
+[connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
+[connection signal="body_entered" from="Door3" to="Door3" method="_on_body_entered"]
+[connection signal="body_exited" from="Door3" to="Door3" method="_on_body_exited"]
+[connection signal="body_entered" from="Door4" to="Door4" method="_on_body_entered"]
+[connection signal="body_exited" from="Door4" to="Door4" method="_on_body_exited"]
+[connection signal="body_entered" from="Door5" to="Door5" method="_on_body_entered"]
+[connection signal="body_exited" from="Door5" to="Door5" method="_on_body_exited"]

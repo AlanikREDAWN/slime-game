@@ -1,11 +1,26 @@
 extends Node
 
+
+
+var level1_complete := false
+var level2_complete := false
+var level3_complete := false
+var level4_complete := false
+var level5_complete := false
+var level6_complete := false
+var level7_complete := false
+var level8_complete := false
+var level9_complete := false
+var level10_complete := false
+var level11_complete := false
+var level12_complete := false
 var doors_entered = []
 var on_door := false
 var back_button_path = "res://scenes/main_menu.tscn"
 signal fps_displayed(value)
 signal bloom_toggled(value)
 signal toggle_game_paused(is_paused : bool)
+
 
 var game_paused := false:
 	get:
