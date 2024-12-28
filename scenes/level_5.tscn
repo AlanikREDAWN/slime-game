@@ -558,3 +558,13 @@ position = Vector2(-1216, 1176)
 
 [node name="Coin27" parent="Coins" instance=ExtResource("9_3uo32")]
 position = Vector2(-1352, 1176)
+
+[node name="YouWin" type="Label" parent="."]
+visible = false
+offset_left = -2379.0
+offset_top = -635.0
+offset_right = 2621.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("2_4a225")
+theme_override_font_sizes/font_size = 1000
+text = "You Win!"

@@ -214,9 +214,9 @@ func _physics_process(delta: float) -> void:
 				
 			if on_sewer == true:
 				if Input.is_action_pressed("down"):
-					#you_win.visible = true
-					get_tree().change_scene_to_file("res://scenes/level_4.tscn")
-					level = 4
+					you_win.visible = true
+					#get_tree().change_scene_to_file("res://scenes/level_4.tscn")
+					#level = 4
 					Global.level1_complete = true
 					Global.level2_complete = true
 					Global.level3_complete = true
