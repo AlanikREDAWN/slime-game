@@ -6,7 +6,7 @@ This Game was started in Hack Club’s [Arcade](https://hackclub.com/arcade/) Ga
 During Hack Club's High Seas event, I decided to add more levels and enhance the overall game. I hope you enjoy it!
 
 
-Or you can download the game by following the instructions below.
+Or you can download the game by following the instructions below. Currently, the version on itch.io is not up to date so you can also play the game hosted on Nest! - <https://slimegame.kittycat.hackclub.app>
 
 Navigate to the folder labeled build. Once there, download the folder labeled with the name of your operating system. Once the folder had been downloaded to your device, find your operating system in the list below and follow the instructions listed.
 
