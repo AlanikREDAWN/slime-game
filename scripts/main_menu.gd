@@ -41,7 +41,7 @@ func _on_audio_stream_player_2d_finished() -> void:
 	if play_pressed == true:
 		play_pressed = false
 		Global.back_button_path = "res://scenes/main_menu.tscn"
-		get_tree().change_scene_to_file("res://scenes/game.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif how_to_play_pressed == true:
 		how_to_play_pressed = false
 		Global.back_button_path = "res://scenes/main_menu.tscn"

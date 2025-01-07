@@ -1,7 +1,7 @@
 extends Node
 
 
-
+var gravity_flipped := false
 var level1_complete := false
 var level2_complete := false
 var level3_complete := false

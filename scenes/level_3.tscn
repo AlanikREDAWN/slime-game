@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cghcsb2j8iha6"]
+[gd_scene load_steps=18 format=4 uid="uid://cghcsb2j8iha6"]
 
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="1_10o27"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_q85yl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/door4.gd" id="8_ldna4"]
 [ext_resource type="PackedScene" uid="uid://bkqe2swn6j546" path="res://scenes/platform_large.tscn" id="9_q4qh0"]
 [ext_resource type="PackedScene" uid="uid://dp2ospmb520pi" path="res://scenes/coin.tscn" id="10_8n3pr"]
+[ext_resource type="PackedScene" uid="uid://rt2raiokvbax" path="res://scenes/ui/pause_menu.tscn" id="12_hkyn0"]
 
 [sub_resource type="Animation" id="Animation_qcle3"]
 length = 5.0
@@ -214,6 +215,12 @@ position = Vector2(-560, 40)
 
 [node name="Coin15" parent="Coins" instance=ExtResource("10_8n3pr")]
 position = Vector2(376, 776)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_hkyn0")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Door1" to="Door1" method="_on_body_entered"]
 [connection signal="body_exited" from="Door1" to="Door1" method="_on_body_exited"]

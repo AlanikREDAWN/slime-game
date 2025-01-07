@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b7yhon56775ts"]
+[gd_scene load_steps=33 format=4 uid="uid://b7yhon56775ts"]
 
 [ext_resource type="Script" path="res://scenes/level_5.gd" id="1_aielu"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_u7e31"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bynmkd4ucv50r" path="res://scenes/small_platform.tscn" id="6_ic4lu"]
 [ext_resource type="PackedScene" uid="uid://cry8nrv4a3gxh" path="res://scenes/danger_zone.tscn" id="6_lycsy"]
 [ext_resource type="PackedScene" uid="uid://dp2ospmb520pi" path="res://scenes/coin.tscn" id="9_3uo32"]
+[ext_resource type="PackedScene" uid="uid://rt2raiokvbax" path="res://scenes/ui/pause_menu.tscn" id="10_sa3ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bucva"]
 size = Vector2(7184, 637)
@@ -170,8 +171,8 @@ _data = {
 "move": SubResource("Animation_aix7f")
 }
 
-[sub_resource type="Animation" id="Animation_n8lxm"]
-resource_name = "topRight"
+[sub_resource type="Animation" id="Animation_l8kfa"]
+resource_name = "bottomLeft"
 length = 4.0
 loop_mode = 2
 tracks/0/type = "value"
@@ -184,58 +185,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1371, -369), Vector2(2003, -369)]
-}
-
-[sub_resource type="Animation" id="Animation_k8f3f"]
-resource_name = "topLeft"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1149, -369), Vector2(-1885, -369)]
-}
-
-[sub_resource type="Animation" id="Animation_th5uq"]
-resource_name = "middleRight"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1691, 322), Vector2(947, 322)]
-}
-
-[sub_resource type="Animation" id="Animation_h6w7t"]
-resource_name = "middleLeft"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1565, 322), Vector2(-725, 322)]
+"values": [Vector2(-2077, 994), Vector2(-1637, 994)]
 }
 
 [sub_resource type="Animation" id="Animation_2k4dv"]
@@ -255,8 +205,8 @@ tracks/0/keys = {
 "values": [Vector2(2163, 994), Vector2(1731, 994)]
 }
 
-[sub_resource type="Animation" id="Animation_l8kfa"]
-resource_name = "bottomLeft"
+[sub_resource type="Animation" id="Animation_h6w7t"]
+resource_name = "middleLeft"
 length = 4.0
 loop_mode = 2
 tracks/0/type = "value"
@@ -269,7 +219,58 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2077, 994), Vector2(-1637, 994)]
+"values": [Vector2(-1565, 322), Vector2(-725, 322)]
+}
+
+[sub_resource type="Animation" id="Animation_th5uq"]
+resource_name = "middleRight"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1691, 322), Vector2(947, 322)]
+}
+
+[sub_resource type="Animation" id="Animation_k8f3f"]
+resource_name = "topLeft"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1149, -369), Vector2(-1885, -369)]
+}
+
+[sub_resource type="Animation" id="Animation_n8lxm"]
+resource_name = "topRight"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1371, -369), Vector2(2003, -369)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nck3k"]
@@ -568,3 +569,9 @@ offset_bottom = 865.0
 theme_override_fonts/font = ExtResource("2_4a225")
 theme_override_font_sizes/font_size = 1000
 text = "You Win!"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_sa3ey")]
+metadata/_edit_use_anchors_ = true

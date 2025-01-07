@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cuwlaty0dc5ql"]
+[gd_scene load_steps=27 format=4 uid="uid://cuwlaty0dc5ql"]
 
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_2d7qp"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_wfojm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqe2swn6j546" path="res://scenes/platform_large.tscn" id="5_e56gw"]
 [ext_resource type="PackedScene" uid="uid://bynmkd4ucv50r" path="res://scenes/small_platform.tscn" id="6_y5d4c"]
 [ext_resource type="PackedScene" uid="uid://dp2ospmb520pi" path="res://scenes/coin.tscn" id="7_mi76m"]
+[ext_resource type="PackedScene" uid="uid://rt2raiokvbax" path="res://scenes/ui/pause_menu.tscn" id="9_6bbcm"]
 
 [sub_resource type="Animation" id="Animation_qcle3"]
 length = 5.0
@@ -144,8 +145,8 @@ _data = {
 "move": SubResource("Animation_aix7f")
 }
 
-[sub_resource type="Animation" id="Animation_n8lxm"]
-resource_name = "topRight"
+[sub_resource type="Animation" id="Animation_l8kfa"]
+resource_name = "bottomLeft"
 length = 4.0
 loop_mode = 2
 tracks/0/type = "value"
@@ -158,58 +159,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1371, -369), Vector2(2003, -369)]
-}
-
-[sub_resource type="Animation" id="Animation_k8f3f"]
-resource_name = "topLeft"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1149, -369), Vector2(-1885, -369)]
-}
-
-[sub_resource type="Animation" id="Animation_th5uq"]
-resource_name = "middleRight"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1691, 322), Vector2(947, 322)]
-}
-
-[sub_resource type="Animation" id="Animation_h6w7t"]
-resource_name = "middleLeft"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1565, 322), Vector2(-725, 322)]
+"values": [Vector2(-2077, 994), Vector2(-1637, 994)]
 }
 
 [sub_resource type="Animation" id="Animation_2k4dv"]
@@ -229,8 +179,8 @@ tracks/0/keys = {
 "values": [Vector2(2163, 994), Vector2(1731, 994)]
 }
 
-[sub_resource type="Animation" id="Animation_l8kfa"]
-resource_name = "bottomLeft"
+[sub_resource type="Animation" id="Animation_h6w7t"]
+resource_name = "middleLeft"
 length = 4.0
 loop_mode = 2
 tracks/0/type = "value"
@@ -243,7 +193,58 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2077, 994), Vector2(-1637, 994)]
+"values": [Vector2(-1565, 322), Vector2(-725, 322)]
+}
+
+[sub_resource type="Animation" id="Animation_th5uq"]
+resource_name = "middleRight"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1691, 322), Vector2(947, 322)]
+}
+
+[sub_resource type="Animation" id="Animation_k8f3f"]
+resource_name = "topLeft"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1149, -369), Vector2(-1885, -369)]
+}
+
+[sub_resource type="Animation" id="Animation_n8lxm"]
+resource_name = "topRight"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1371, -369), Vector2(2003, -369)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nck3k"]
@@ -443,3 +444,9 @@ position = Vector2(616, -264)
 
 [node name="Coin27" parent="Coins" instance=ExtResource("7_mi76m")]
 position = Vector2(1008, -384)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_6bbcm")]
+metadata/_edit_use_anchors_ = true

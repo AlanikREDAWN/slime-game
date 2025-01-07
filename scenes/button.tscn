@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn2knjph25neb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhf1"]
+size = Vector2(227, 133)
+
+[node name="button" type="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 61.5)
+shape = SubResource("RectangleShape2D_3mhf1")
